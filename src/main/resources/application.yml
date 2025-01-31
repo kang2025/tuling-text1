@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/tuling-text1?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath*:com/hrms/mapper/*.xml
+  type-aliases-package: com.hrms.pojo
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+alioss:
+  endpoint: oss-cn-beijing.aliyuncs.com
+  accessKeyId: LTAI5tGwiNc4cjCBaMkaezMe
+  accessKeySecret: ixAnYEhItf3xCRjfcjKE5f3Nh4u1PP
+  bucketName: sky-licast

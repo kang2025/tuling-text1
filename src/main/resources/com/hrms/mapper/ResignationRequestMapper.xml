@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hrms.mapper.ResignationRequestMapper">
+
+    <!-- 保存离职申请 -->
+    <insert id="save" parameterType="com.hrms.pojo.ResignationRequest" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO resignation_requests (employee_id, reason, status)        VALUES (#{employee.id}, #{reason}, #{status})    </insert>
+
+    <!-- 更新离职申请 -->
+    <update id="update" parameterType="com.hrms.pojo.ResignationRequest">
+        UPDATE resignation_requests        SET employee_id = #{employee.id}, reason = #{reason}, status = #{status}        WHERE id = #{id}    </update>
+
+    <!-- 删除离职申请 -->
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM resignation_requests WHERE id = #{id}    </delete>
+</mapper>

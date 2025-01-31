@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hrms.mapper.TrainingActivityMapper">
+
+    <!-- 查询所有培训活动 -->
+    <select id="findAll" resultType="com.hrms.pojo.TrainingActivity">
+        SELECT * FROM training_activities    </select>
+
+    <!-- 查询单个培训活动 -->
+    <select id="findById" resultType="com.hrms.pojo.TrainingActivity">
+        SELECT * FROM training_activities WHERE id = #{id}    </select>
+    <select id="findByEmployeeId" resultType="com.hrms.pojo.TrainingActivity">
+        SELECT * FROM training_activities WHERE employee_id = #{employeeId}    </select>
+
+    <!-- 保存培训活动 -->
+    <insert id="save" parameterType="com.hrms.pojo.TrainingActivity" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO training_activities (name, description, start_date, end_date)        VALUES (#{name}, #{description}, #{startDate}, #{endDate})    </insert>
+
+    <!-- 更新培训活动 -->
+    <update id="update" parameterType="com.hrms.pojo.TrainingActivity">
+        UPDATE training_activities        SET name = #{name}, description = #{description}, start_date = #{startDate}, end_date = #{endDate}        WHERE id = #{id}    </update>
+
+    <!-- 删除培训活动 -->
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM training_activities WHERE id = #{id}    </delete>
+
+</mapper>
